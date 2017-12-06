@@ -1,0 +1,161 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="HolidayTravelVehicles.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Holdiay Travel Vehicles -</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <style>
+        .dropdown-menu.multi-column {
+            width: 400px;
+        }
+
+        .dropdown-menu.multi-column .dropdown-menu {
+            display: block !important;
+            position: static !important;
+            margin: 0 !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        button {
+            margin-top:13px
+        }        
+    </style>
+     <asp:ContentPlaceHolder runat="server" id="HeadContent" />
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/">Holiday Travel Vehicles</a>
+                </div>
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/">Home</a></li>
+                        <li><a runat="server" href="~/About">About</a></li>
+                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                    </ul>
+                </div>
+               
+            </div>
+
+        </div>
+        <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   
+                </div>
+                <div class="btn-group">
+                    <div class="btn-group">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Salesperson
+                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Salesperson/AddVehicle.aspx">Add Vehicle</a></li>                                    
+                                </ul>                   
+                        </div>
+                    </div>
+                    <div class="btn-group dropdown2">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Customer
+                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Customer/FindVehicle.aspx">Find Vehicle</a></li>
+                                    <li><a href="../Customer/VehicleTrade.aspx">Trade Vehicle</a></li>
+                                    
+                                </ul> 
+                        </div>
+                    </div>
+                    </div>
+                </div>
+        
+        <%--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.php">Scoreboards</a>
+                </div>
+                <div class="btn-group">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                            TTT Stats <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=tttkills">Total TTT Kills</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=tttdeaths">Total TTT Deaths</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=traitorkills">TTT kills as a traitor</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=traitorskilled">Traitors killed as an innocent/detective</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group dropdown2">
+                        <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown">
+                            Other <span class="caret"></span> 
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=playtime">Time Tracker</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=phkills">Total Prophunt Kills</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>--%>
+       
+      
+        
+
+        <div class="container body-content">
+            <div class="centered text-center">
+            <hr /><br /><br />
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Holiday Travel Vehicles</p>
+            </footer>
+            </div>
+        </div>
+
+    </form>
+</body>
+</html>
