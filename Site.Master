@@ -93,7 +93,8 @@
                             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Salesperson
                                 <span class="caret"></span></button>
                                 <ul class="dropdown-menu">
-                                    <li><a href="../Salesperson/AddVehicle.aspx">Add Vehicle</a></li>                                    
+                                    <li><a href="../Salesperson/AddVehicle.aspx">Add Vehicle</a></li>   
+                                    <li><a href="../Salesperson/AddCustomer.aspx">Add Customer</a></li>
                                 </ul>                   
                         </div>
                     </div>

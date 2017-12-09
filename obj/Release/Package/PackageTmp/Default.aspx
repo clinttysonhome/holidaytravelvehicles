@@ -5,7 +5,7 @@
     <div class="jumbotron">
         <h1>Holiday Travel Vehicles</h1>
         <p class="lead">Holiday Travel Vehicles is your one stop shop for recreational vehicles.</p>
-        <p><a href="~/" class="btn btn-primary btn-lg">Find a Vehicle &raquo;</a></p>
+        <p><a href="/Customer/FindVehicle.aspx" class="btn btn-primary btn-lg">Find a Vehicle &raquo;</a></p>
     </div>
 
     <%--<div class="row">
