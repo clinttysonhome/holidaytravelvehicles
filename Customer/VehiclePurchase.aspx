@@ -17,6 +17,7 @@
           margin-right:0px;
         }
     </style>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
    <div class="container">
@@ -24,27 +25,40 @@
             <div class="form-area">
 
                 <h3 style="margin-bottom: 25px; text-align: center;">Vehicle Purchase</h3>
+              
                 <div class="form-group">
-                    <input type="text" class="form-control" id="VehicleSN" name="VehicleSN" placeholder="Vehicle Serial Number" required>
+                    <asp:TextBox runat="server" type="text" class="form-control" id="vehicleName"  placeholder="Vehicle Name" />
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="email" name="email" placeholder="Name" required>
+                    <asp:TextBox runat="server" type="text" class="form-control" id="vehicleModel"  placeholder="Vehicle Model" />
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Model" required>
+                    <asp:TextBox runat="server" type="text" class="form-control" id="vehicleYear" placeholder="Vehicle Year" />
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Year" required>
+                    <asp:TextBox runat="server" type="text" class="form-control" id="manufacturer"  placeholder="Manufacturer" />
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="manufacturer" name="manufacturer" placeholder="Manufacturer" required>
+                    <asp:TextBox runat="server" type="text" class="form-control" id="basecost" placeholder="Base Cost" />
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="basecost" name="basecost" placeholder="Base Cost" required>
+                    <asp:DropDownList ID="ddlCustomers" CssClass="form-control" runat="server">
+                        <asp:ListItem>1</asp:ListItem>
+                        <asp:ListItem>2</asp:ListItem>
+                    </asp:DropDownList>
                 </div>
-                <button type="button" id="exit" name="exit" class="btn btn-primary pull-right">Exit</button>
-                <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Options</button>
-                <button type="button" id="purchase" name="purchase" class="btn btn-primary pull-right">Purchase</button>
+                
+              <table style="float:right">
+                  <tr>
+                      <td style="padding-right:3px">
+                           <asp:Button runat="server" id="Button2" Text="Options" class="btn btn-primary pull-right"/>
+                      </td>
+                      <td>
+                          <asp:Button runat="server" id="Button1" Text="Purchase" class="btn btn-primary pull-right"/>
+                      </td>
+                  </tr>
+              </table>
+                
             </div>
         </div>
     </div>

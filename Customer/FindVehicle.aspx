@@ -56,10 +56,8 @@
     <div class="container">
         
         <div class="col-md-4 col-md-offset-4">
-
             
-            <div class="form-area">
-               
+            <div class="form-area">            
 
                 <h3 style="margin-bottom: 25px; text-align: center;">Find a Vehicle</h3>
 
@@ -81,8 +79,6 @@
                 <div>
                 <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" class="btn btn-primary pull-right"/>
                 </div>
-                
-
             </div>
         </div>
         <div>
@@ -108,7 +104,6 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
-
             </asp:GridView>
         </div>
     </div>
