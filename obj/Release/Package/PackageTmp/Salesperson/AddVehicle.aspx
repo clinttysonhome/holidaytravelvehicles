@@ -70,7 +70,6 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="form-area">
 
-
                 <h3 style="margin-bottom: 25px; text-align: center;">Add Vehicle</h3>
                 <div class="form-group">
                     <asp:TextBox runat="server" class="form-control" id="vehicleName" placeholder="Vehicle Name" />
@@ -86,11 +85,9 @@
                 </div>
                 <div class="form-group">
                     <asp:TextBox runat="server" class="form-control" id="baseCost" placeholder="Base Cost" />
-                </div>                
-
-               
-                <asp:Button runat="server" ID="btnAddVehicle" Text="Add Vehicle" OnClick="btnAddVehicle_Click" class="btn btn-primary pull-right" />
-                   
+                </div>
+                
+                <asp:Button runat="server" ID="btnAddVehicle" Text="Add Vehicle" OnClick="btnAddVehicle_Click" class="btn btn-primary pull-right" />                   
 
             </div>
             <asp:Panel runat="server" ID="successDelete" Visible="false">
@@ -108,6 +105,7 @@
                     <strong>Error!</strong> Vehicle not added.
                 </div>
             </asp:Panel>
+           
         </div>
         <div>
             <asp:GridView ID="vehiclegridView"

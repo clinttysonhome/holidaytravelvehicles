@@ -161,7 +161,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
         <div class="col-md-4 col-md-offset-4">
-            <table>
+            <table style="color:white">
                 <tr>
                     <td style="text-align: right"><span style="font-weight: bold">Customer:&nbsp;&nbsp; </span></td>
                     <td style="text-align: left"><span style="font-weight: bold">

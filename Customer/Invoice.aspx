@@ -23,6 +23,9 @@
             margin: 8px;
             margin-right: 0px;
         }
+        body {
+            background-image: url('')
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
