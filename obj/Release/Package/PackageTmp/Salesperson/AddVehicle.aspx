@@ -37,7 +37,7 @@
             color: #fff;
             background: #424242 url(grd_head.png) repeat-x top;
             border-left: solid 1px #525252;
-            font-size: 0.9em;
+            font-size: 12pt;
         }
 
         .mGrid .alt {
@@ -79,7 +79,7 @@
                     <asp:TextBox runat="server" class="form-control" id="vehicleModel" placeholder="Vehicle Model" />
                 </div>
                 <div class="form-group">
-                    <asp:TextBox runat="server" class="form-control" id="vehicleYear" placeholder="Model" />
+                    <asp:TextBox runat="server" class="form-control" id="vehicleYear" placeholder="Vehicle Year" />
                 </div>
                 <div class="form-group">
                     <asp:TextBox runat="server" class="form-control" id="manufacturer"  placeholder="Manufacturer" />
@@ -111,7 +111,7 @@
         </div>
         <div>
             <asp:GridView ID="vehiclegridView"
-                Caption="Vehicle List"
+                Caption="<span style='font-weight:bold; font-size:14pt'>Vehicle List</span>"
                 CssClass="mGrid"
                 OnRowCommand="vehiclegridView_OnRowCommand"
                 AlternatingRowStyle-CssClass="alt"
@@ -122,7 +122,7 @@
                     <asp:BoundField DataField="vehicleModel" HeaderText="Vehicle Model" />
                     <asp:BoundField DataField="vehicleYear" HeaderText="Vehicle Year" />
                     <asp:BoundField DataField="manufacturer" HeaderText="Manufacturer" />
-                    <asp:BoundField DataField="baseCost" HeaderText="Base Cost" />
+                    <asp:BoundField DataField="baseCost" DataFormatString="{0:C}" HeaderText="Base Cost" />
                     
                     <asp:TemplateField ItemStyle-Width="50px" ItemStyle-HorizontalAlign="Center">
                         <ItemTemplate>

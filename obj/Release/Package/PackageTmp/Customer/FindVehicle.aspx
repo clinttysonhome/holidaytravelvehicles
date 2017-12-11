@@ -34,7 +34,7 @@
             color: #fff; 
             background: #424242 url(grd_head.png) repeat-x top; 
             border-left: solid 1px #525252; 
-            font-size: 0.9em; 
+            font-size: 12pt;
         }
         .mGrid .alt { background-color: lightgrey; }
         
@@ -56,9 +56,9 @@
     <div class="container">
         
         <div class="col-md-4 col-md-offset-4">
-            
+            <h4 style="color:white; font-weight: bold">Note: Click search with no data entered to display all results...</h4>
             <div class="form-area">            
-
+                
                 <h3 style="margin-bottom: 25px; text-align: center;">Find a Vehicle</h3>
 
                 <div class="form-group">
@@ -83,7 +83,7 @@
         </div>
         <div>
             <asp:GridView ID="gridView" 
-                Caption="Search Results" 
+                Caption="<span style='font-weight:bold; font-size:14pt'>Search Results</span>"
                 CssClass="mGrid" 
                 OnRowCommand="gridView_OnRowCommand"
                 AlternatingRowStyle-CssClass="alt" 
