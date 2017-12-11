@@ -9,6 +9,7 @@ namespace HolidayTravelVehicles
 {
     public partial class SiteMaster : MasterPage
     {
+        public string imgPath = System.Web.VirtualPathUtility.ToAbsolute("~/Images/bg.jpg");
         protected void Page_Load(object sender, EventArgs e)
         {
 

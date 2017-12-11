@@ -71,7 +71,7 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        
                     </ul>
                 </div>
                
@@ -104,13 +104,22 @@
                                 <span class="caret"></span></button>
                                 <ul class="dropdown-menu">
                                     <li><a href="../Customer/FindVehicle.aspx">Find Vehicle</a></li>
-                                    <li><a href="../Customer/VehicleTrade.aspx">Trade Vehicle</a></li>
-                                    
+                                    <li><a href="../Customer/VehicleTrade.aspx">Trade Vehicle</a></li>                                    
                                 </ul> 
                         </div>
                     </div>
+                     <div class="btn-group dropdown3">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Reports
+                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Customer/FindVehicle.aspx">Vehicles Sold</a></li>
+                                                                        
+                                </ul> 
+                        </div>
                     </div>
                 </div>
+            </div>
         
         <%--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container-fluid">

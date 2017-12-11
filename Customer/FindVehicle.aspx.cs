@@ -50,8 +50,7 @@ namespace HolidayTravelVehicles.Customer
             if (!String.IsNullOrEmpty(sb.ToString()))
                 strWhere = sb.ToString();
 
-            if (strWhere == " Where ")
-                strWhere = "";
+            
 
             string connString = ConfigurationManager.ConnectionStrings["DataConnectionString"].ConnectionString;
             DataTable dt = new DataTable();
@@ -66,7 +65,7 @@ namespace HolidayTravelVehicles.Customer
                 // The following code uses an SqlCommand based on the SqlConnection.
 
                 //
-                using (SqlCommand command = new SqlCommand("Select * From Vehicle" + strWhere, con))
+                using (SqlCommand command = new SqlCommand("Select * From Vehicle" + strWhere + " customerID IS NULL", con))
                     da.SelectCommand = command;
                 da.Fill(dt);
                 gridView.DataSource = dt;

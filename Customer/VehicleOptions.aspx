@@ -2,9 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style>
-        @import('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css') .funkyradio div
-
-        {
+        .funkyradio div {
             clear: both;
             /*margin: 0 50px;*/
             overflow: hidden;
@@ -108,10 +106,11 @@
             border: 1px solid GREY;
         }
 
-        .form-area button{
-          margin: 8px;
-          margin-right:0px;
-        }
+            .form-area button {
+                margin: 8px;
+                margin-right: 0px;
+            }
+
         .mGrid {
             width: 100%;
             background-color: #fff;
@@ -132,7 +131,7 @@
                 color: #fff;
                 background: #424242 url(grd_head.png) repeat-x top;
                 border-left: solid 1px #525252;
-                font-size: 0.9em;
+                font-size: 12pt;
             }
 
             .mGrid .alt {
@@ -153,10 +152,10 @@
                 text-decoration: none;
             }
 
-            .mGrid .pgr a:hover {
-                color: #000;
-                text-decoration: none;
-            }
+                .mGrid .pgr a:hover {
+                    color: #000;
+                    text-decoration: none;
+                }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -164,17 +163,19 @@
         <div class="col-md-4 col-md-offset-4">
             <table>
                 <tr>
-                    <td style="text-align:right"><span style="font-weight:bold">Customer:&nbsp;&nbsp; </span></td>
-                    <td style="text-align:left"><span style="font-weight:bold"><asp:Label ID="lblCustomer" runat="server" Text="Label"></asp:Label></span></td>
+                    <td style="text-align: right"><span style="font-weight: bold">Customer:&nbsp;&nbsp; </span></td>
+                    <td style="text-align: left"><span style="font-weight: bold">
+                        <asp:Label ID="lblCustomer" runat="server" Text="Label"></asp:Label></span></td>
                 </tr>
                 <tr>
-                    <td style="text-align:right"><span style="font-weight:bold">Vehicle:&nbsp;&nbsp; </span></td>
-                    <td style="text-align:left"><span style="font-weight:bold"><asp:Label ID="lblVehicle" runat="server" Text="Label"></asp:Label></span></td>
+                    <td style="text-align: right"><span style="font-weight: bold">Vehicle:&nbsp;&nbsp; </span></td>
+                    <td style="text-align: left"><span style="font-weight: bold">
+                        <asp:Label ID="lblVehicle" runat="server" Text="Label"></asp:Label></span></td>
                 </tr>
-            </table>    
-            
+            </table>
+
             <div class="form-area">
-                <h3 style="margin-bottom: 25px; text-align: center;">Vehicle Options</h3>               
+                <h3 style="margin-bottom: 25px; text-align: center;">Vehicle Options</h3>
                 <div class="funkyradio">
                     <asp:CheckBoxList Width="270px" ID="cbxOptions"
                         CssClass="funkyradio-primary"
@@ -183,13 +184,24 @@
                         DataSourceID="dsOptions"
                         runat="server">
                     </asp:CheckBoxList>
-                    <asp:SqlDataSource ID="dsOptions" 
-                        ConnectionString="<%$ ConnectionStrings:DataConnectionString%>" 
+                    <asp:SqlDataSource ID="dsOptions"
+                        ConnectionString="<%$ ConnectionStrings:DataConnectionString%>"
                         runat="server"
-                        SelectCommand="SELECT optionID, optionName From Options Order By optionID ASC ">                        
-                    </asp:SqlDataSource>                    
-                </div>                
-                <asp:Button runat="server" id="btnSave" Text="Save" OnClick="btnSave_OnClick" class="btn btn-primary pull-right" />
+                        SelectCommand="SELECT optionID, optionName From Options Order By optionID ASC "></asp:SqlDataSource>
+                </div>
+                <br />
+                <table style="float:right">
+                    <tr>
+                        <td style="padding-right:3px">
+                            <asp:Button runat="server" ID="btnSave" Text="Save" OnClick="btnSave_Click" class="btn btn-primary pull-right" />
+                        </td>
+                        <td>
+                           <asp:Button runat="server" ID="btnPurchase" Text="Purchase Vehicle" OnClick="btnPurchase_Click" class="btn btn-primary pull-right" />
+                        </td>
+                    </tr>
+                </table>
+                
+                
             </div>
             <asp:Panel runat="server" ID="successDelete" Visible="false">
                 <div class="alert alert-success">
@@ -211,14 +223,13 @@
                     <strong>Success!</strong> Options were saved. Please view summary.
                 </div>
             </asp:Panel>
-            
         </div>
         <div>
             <asp:GridView ID="custgridView"
-                Caption="<span style='font-weight:bold'>Customer</span>"
-                CssClass="mGrid"                
+                Caption="<span style='font-weight:bold; font-size:14pt'>Customer</span>"
+                CssClass="mGrid"
                 AlternatingRowStyle-CssClass="alt"
-                AutoGenerateColumns="false"                
+                AutoGenerateColumns="false"
                 runat="server">
                 <Columns>
                     <asp:BoundField DataField="firstName" HeaderText="First Name" />
@@ -229,14 +240,13 @@
                     <asp:BoundField DataField="zip" HeaderText="Zip" />
                     <asp:BoundField DataField="phone" HeaderText="Phone" />
                     <asp:BoundField DataField="dateOfBirth" HeaderText="Date Of Birth" />
-                    
                 </Columns>
             </asp:GridView>
             <br />
-            <asp:GridView ID="vehiclegridView" 
-                Caption="<span style='font-weight:bold'>Vehicle</span>" 
-                CssClass="mGrid"                 
-                AlternatingRowStyle-CssClass="alt" 
+            <asp:GridView ID="vehiclegridView"
+                Caption="<span style='font-weight:bold; font-size:14pt'>Vehicle</span>"
+                CssClass="mGrid"
+                AlternatingRowStyle-CssClass="alt"
                 AutoGenerateColumns="false"
                 runat="server">
                 <Columns>
@@ -244,20 +254,19 @@
                     <asp:BoundField DataField="vehicleModel" HeaderText="Vehicle Model" />
                     <asp:BoundField DataField="vehicleYear" HeaderText="Vehicle Year" />
                     <asp:BoundField DataField="manufacturer" HeaderText="Manufacturer" />
-                    <asp:BoundField DataField="baseCost" DataFormatString="{0:c}"  HeaderText="Base Cost" />                    
+                    <asp:BoundField DataField="baseCost" DataFormatString="{0:c}" HeaderText="Base Cost" />
                 </Columns>
             </asp:GridView>
             <br />
-            <asp:GridView ID="optionsgridView" 
-                Caption="<span style='font-weight:bold'>Options</span>" 
-                CssClass="mGrid"
-                OnRowCommand="optionsgridView_OnRowCommand"
-                AlternatingRowStyle-CssClass="alt" 
+            <asp:GridView ID="optionsgridView"
+                Caption="<span style='font-weight:bold; font-size:14pt'>Vehicle Options</span>"
+                CssClass="mGrid"               
+                AlternatingRowStyle-CssClass="alt"
                 AutoGenerateColumns="false"
                 runat="server">
                 <Columns>
                     <asp:BoundField DataField="optionName" HeaderText="Option Name" />
-                    <asp:BoundField DataField="optionCost" DataFormatString="{0:c}" HeaderText="Option Cost" /> 
+                    <asp:BoundField DataField="optionCost" DataFormatString="{0:c}" HeaderText="Option Cost" />
                     <asp:TemplateField ItemStyle-Width="50px" ItemStyle-HorizontalAlign="Center">
                         <ItemTemplate>
                             <div>

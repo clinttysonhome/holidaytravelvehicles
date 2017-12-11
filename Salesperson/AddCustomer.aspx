@@ -38,7 +38,7 @@
             color: #fff;
             background: #424242 url(grd_head.png) repeat-x top;
             border-left: solid 1px #525252;
-            font-size: 0.9em;
+            font-size: 12pt;
         }
 
         .mGrid .alt {
@@ -117,7 +117,7 @@
         </div>
         <div>
             <asp:GridView ID="custgridView"
-                Caption="Customer List"
+                Caption="<span style='font-weight:bold; font-size:14pt'>Customer List</span>"
                 CssClass="mGrid"
                 OnRowCommand="custgridView_OnRowCommand"
                 AlternatingRowStyle-CssClass="alt"

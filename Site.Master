@@ -12,25 +12,32 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <style>
         .dropdown-menu.multi-column {
             width: 400px;
         }
 
-        .dropdown-menu.multi-column .dropdown-menu {
-            display: block !important;
-            position: static !important;
-            margin: 0 !important;
-            border: none !important;
-            box-shadow: none !important;
-        }
+            .dropdown-menu.multi-column .dropdown-menu {
+                display: block !important;
+                position: static !important;
+                margin: 0 !important;
+                border: none !important;
+                box-shadow: none !important;
+            }
+
         button {
-            margin-top:13px
-        }        
-    </style>    
-    <asp:ContentPlaceHolder runat="server" id="HeadContent" />
+            margin-top: 13px
+        }
+        body {
+            background-image: url('<%= imgPath %>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size:100%;
+        }
+    </style>
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
 
 </head>
 <body>
@@ -71,47 +78,76 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+
                     </ul>
                 </div>
-               
+
             </div>
 
         </div>
         <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                   
-                </div>
-                <div class="btn-group">
-                    <div class="btn-group">
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Salesperson
-                                <span class="caret"></span></button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="../Salesperson/AddVehicle.aspx">Add Vehicle</a></li>   
-                                    <li><a href="../Salesperson/AddCustomer.aspx">Add Customer</a></li>
-                                </ul>                   
-                        </div>
-                    </div>
-                    <div class="btn-group dropdown2">
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Customer
-                                <span class="caret"></span></button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="../Customer/FindVehicle.aspx">Find Vehicle</a></li>
-                                    <li><a href="../Customer/VehicleTrade.aspx">Trade Vehicle</a></li>
-                                    
-                                </ul> 
-                        </div>
-                    </div>
-                    </div>
-                </div>
-        
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+            <div class="btn-group">
+                <table>
+                    <tr>
+                        <td style="padding-right:3px">
+                            <div class="btn-group">
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                        Salesperson
+                                <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../Salesperson/AddVehicle.aspx">Add Vehicle</a></li>
+                                        <li><a href="../Salesperson/AddCustomer.aspx">Add Customer</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </td>
+                        <td style="padding-right:4px">
+                            <div class="btn-group dropdown2">
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                        Customer
+                                <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../Customer/FindVehicle.aspx">Find Vehicle</a></li>
+                                        <li><a href="../Customer/VehicleTrade.aspx">Trade Vehicle</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="btn-group dropdown3">
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                        Reports
+                                <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../Reports/VehiclesSold.aspx">Vehicles Sold</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                </table>
+
+
+
+            </div>
+        </div>
+
         <%--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -141,19 +177,21 @@
                 </div>
             </div>
         </nav>--%>
-       
-      
-        
+
+
+
 
         <div class="container body-content">
             <div class="centered text-center">
-            <hr /><br /><br />
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Holiday Travel Vehicles</p>
-            </footer>
+                <hr />
+                <br />
+                <br />
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+                <hr />
+                <footer>
+                    <p style="color:white">&copy; <%: DateTime.Now.Year %> - Holiday Travel Vehicles</p>
+                </footer>
             </div>
         </div>
 

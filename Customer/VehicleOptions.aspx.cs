@@ -66,7 +66,7 @@ namespace HolidayTravelVehicles.Customer
             ShowSummary();
         }
 
-        protected void btnSave_OnClick(object sender, EventArgs e)
+        protected void btnSave_Click(object sender, EventArgs e)
         {
             foreach (ListItem listItem in cbxOptions.Items)
             {
@@ -84,6 +84,11 @@ namespace HolidayTravelVehicles.Customer
                     ShowSummary();
                 }
             }
+        }
+
+        protected void btnPurchase_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Customer/VehicleConfirmPurchase.aspx");
         }
 
         private bool Duplicate(ListItem listItem)

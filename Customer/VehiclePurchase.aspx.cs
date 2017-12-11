@@ -70,6 +70,8 @@ namespace HolidayTravelVehicles.Customer
                 error.Visible = true;
                 return;
             }
+            Session["customerID"] = ddlCustomers.SelectedValue;
+            Response.Redirect("~/Customer/VehicleConfirmPurchase.aspx");
 
         }
     }
