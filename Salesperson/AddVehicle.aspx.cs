@@ -28,7 +28,7 @@ namespace HolidayTravelVehicles.Salesperson
 
         protected void btnAddVehicle_Click(object sender, EventArgs e)
         {
-
+           
             using (SqlConnection con = new SqlConnection(connString))
             {
                 con.Open();
@@ -93,6 +93,7 @@ namespace HolidayTravelVehicles.Salesperson
                 successDelete.Visible = true;
 
             }
+        
             bindVehicleGridView();
 
         }
@@ -104,7 +105,7 @@ namespace HolidayTravelVehicles.Salesperson
             using (SqlConnection con = new SqlConnection(connString))
             {
                 con.Open();
-                using (SqlCommand command = new SqlCommand("Select * From Vehicle", con))
+                using (SqlCommand command = new SqlCommand("Select * From Vehicle Where customerID IS NULL", con))
                 {
                     da.SelectCommand = command;
                     da.Fill(dt);

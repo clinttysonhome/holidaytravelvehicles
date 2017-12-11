@@ -119,8 +119,7 @@
                                 <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a href="../Customer/FindVehicle.aspx">Find Vehicle</a></li>
-                                        <li><a href="../Customer/VehicleTrade.aspx">Trade Vehicle</a></li>
+                                        <li><a href="../Customer/FindVehicle.aspx">Find Vehicle</a></li>                                        
                                     </ul>
                                 </div>
                             </div>
