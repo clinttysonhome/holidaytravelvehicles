@@ -112,43 +112,164 @@
           margin: 8px;
           margin-right:0px;
         }
+        .mGrid {
+            width: 100%;
+            background-color: #fff;
+            margin: 5px 0 10px 0;
+            border: solid 1px #525252;
+            border-collapse: collapse;
+        }
+
+            .mGrid td {
+                padding: 2px;
+                border: solid 1px #c1c1c1;
+                color: #717171;
+            }
+
+            .mGrid th {
+                padding: 4px 2px;
+                text-align: center;
+                color: #fff;
+                background: #424242 url(grd_head.png) repeat-x top;
+                border-left: solid 1px #525252;
+                font-size: 0.9em;
+            }
+
+            .mGrid .alt {
+                background-color: lightgrey;
+            }
+
+            .mGrid .pgr td {
+                border-width: 0;
+                padding: 0 6px;
+                border-left: solid 1px #666;
+                font-weight: bold;
+                color: #fff;
+                line-height: 12px;
+            }
+
+            .mGrid .pgr a {
+                color: #666;
+                text-decoration: none;
+            }
+
+            .mGrid .pgr a:hover {
+                color: #000;
+                text-decoration: none;
+            }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
         <div class="col-md-4 col-md-offset-4">
+            <table>
+                <tr>
+                    <td style="text-align:right"><span style="font-weight:bold">Customer:&nbsp;&nbsp; </span></td>
+                    <td style="text-align:left"><span style="font-weight:bold"><asp:Label ID="lblCustomer" runat="server" Text="Label"></asp:Label></span></td>
+                </tr>
+                <tr>
+                    <td style="text-align:right"><span style="font-weight:bold">Vehicle:&nbsp;&nbsp; </span></td>
+                    <td style="text-align:left"><span style="font-weight:bold"><asp:Label ID="lblVehicle" runat="server" Text="Label"></asp:Label></span></td>
+                </tr>
+            </table>    
+            
             <div class="form-area">
-                <h3 style="margin-bottom: 25px; text-align: center;">Vehicle Options</h3>
+                <h3 style="margin-bottom: 25px; text-align: center;">Vehicle Options</h3>               
                 <div class="funkyradio">
-                    <div class="funkyradio-primary">
-                        <input type="checkbox" name="checkbox" id="checkbox1" checked />
-                        <label for="checkbox1">Sunroof</label>
-                    </div>
-                    <div class="funkyradio-primary">
-                        <input type="checkbox" name="checkbox" id="checkbox2" checked />
-                        <label for="checkbox2">Leather</label>
-                    </div>
-                    <div class="funkyradio-primary">
-                        <input type="checkbox" name="checkbox" id="checkbox3" checked />
-                        <label for="checkbox3">Backup Camera</label>
-                    </div>
-                    <div class="funkyradio-primary">
-                        <input type="checkbox" name="checkbox" id="checkbox4" checked />
-                        <label for="checkbox4">Seat Warmer</label>
-                    </div>
-                    <div class="funkyradio-primary">
-                        <input type="checkbox" name="checkbox" id="checkbox5" checked />
-                        <label for="checkbox5">Eco Boost</label>
-                    </div>
-                    <div class="funkyradio-primary">
-                        <input type="checkbox" name="checkbox" id="checkbox6" checked />
-                        <label for="checkbox6">Chrome Wheels</label>
-                    </div>
-                </div>
-                <button type="button" id="exit" name="exit" class="btn btn-primary pull-right">Exit</button>
-                <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Save</button>
+                    <asp:CheckBoxList Width="270px" ID="cbxOptions"
+                        CssClass="funkyradio-primary"
+                        DataTextField="optionName"
+                        DataValueField="optionID"
+                        DataSourceID="dsOptions"
+                        runat="server">
+                    </asp:CheckBoxList>
+                    <asp:SqlDataSource ID="dsOptions" 
+                        ConnectionString="<%$ ConnectionStrings:DataConnectionString%>" 
+                        runat="server"
+                        SelectCommand="SELECT optionID, optionName From Options Order By optionID ASC ">                        
+                    </asp:SqlDataSource>                    
+                </div>                
+                <asp:Button runat="server" id="btnSave" Text="Save" OnClick="btnSave_OnClick" class="btn btn-primary pull-right" />
             </div>
+            <asp:Panel runat="server" ID="successDelete" Visible="false">
+                <div class="alert alert-success">
+                    <strong>Success!</strong> Option was deleted.
+                </div>
+            </asp:Panel>
+            <asp:Panel runat="server" ID="error" Visible="false">
+                <div class="alert alert-danger">
+                    <strong>Error!</strong> Save failed.
+                </div>
+            </asp:Panel>
+            <asp:Panel runat="server" ID="errorDup" Visible="false">
+                <div class="alert alert-danger">
+                    <strong>Error!</strong> Cannot insert duplicate.
+                </div>
+            </asp:Panel>
+            <asp:Panel runat="server" ID="success" Visible="false">
+                <div class="alert alert-success">
+                    <strong>Success!</strong> Options were saved. Please view summary.
+                </div>
+            </asp:Panel>
+            
         </div>
+        <div>
+            <asp:GridView ID="custgridView"
+                Caption="<span style='font-weight:bold'>Customer</span>"
+                CssClass="mGrid"                
+                AlternatingRowStyle-CssClass="alt"
+                AutoGenerateColumns="false"                
+                runat="server">
+                <Columns>
+                    <asp:BoundField DataField="firstName" HeaderText="First Name" />
+                    <asp:BoundField DataField="lastName" HeaderText="Last Name" />
+                    <asp:BoundField DataField="address" HeaderText="Address" />
+                    <asp:BoundField DataField="city" HeaderText="City" />
+                    <asp:BoundField DataField="state" HeaderText="State" />
+                    <asp:BoundField DataField="zip" HeaderText="Zip" />
+                    <asp:BoundField DataField="phone" HeaderText="Phone" />
+                    <asp:BoundField DataField="dateOfBirth" HeaderText="Date Of Birth" />
+                    
+                </Columns>
+            </asp:GridView>
+            <br />
+            <asp:GridView ID="vehiclegridView" 
+                Caption="<span style='font-weight:bold'>Vehicle</span>" 
+                CssClass="mGrid"                 
+                AlternatingRowStyle-CssClass="alt" 
+                AutoGenerateColumns="false"
+                runat="server">
+                <Columns>
+                    <asp:BoundField DataField="vehicleName" HeaderText="Vehicle Name" />
+                    <asp:BoundField DataField="vehicleModel" HeaderText="Vehicle Model" />
+                    <asp:BoundField DataField="vehicleYear" HeaderText="Vehicle Year" />
+                    <asp:BoundField DataField="manufacturer" HeaderText="Manufacturer" />
+                    <asp:BoundField DataField="baseCost" DataFormatString="{0:c}"  HeaderText="Base Cost" />                    
+                </Columns>
+            </asp:GridView>
+            <br />
+            <asp:GridView ID="optionsgridView" 
+                Caption="<span style='font-weight:bold'>Options</span>" 
+                CssClass="mGrid"
+                OnRowCommand="optionsgridView_OnRowCommand"
+                AlternatingRowStyle-CssClass="alt" 
+                AutoGenerateColumns="false"
+                runat="server">
+                <Columns>
+                    <asp:BoundField DataField="optionName" HeaderText="Option Name" />
+                    <asp:BoundField DataField="optionCost" DataFormatString="{0:c}" HeaderText="Option Cost" /> 
+                    <asp:TemplateField ItemStyle-Width="50px" ItemStyle-HorizontalAlign="Center">
+                        <ItemTemplate>
+                            <div>
+                                <asp:Button ID="btnDeleteOption" runat="server" CommandName="deleteOption" Text="Delete"
+                                    CommandArgument='<%# Eval("optionsmappingID") %>' class="btn btn-primary pull-right" />
+                            </div>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+        </div>
+
     </div>
 
 </asp:Content>

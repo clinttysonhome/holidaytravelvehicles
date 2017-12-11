@@ -13,6 +13,15 @@ namespace HolidayTravelVehicles.Customer {
     public partial class VehiclePurchase {
         
         /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
         /// vehicleName control.
         /// </summary>
         /// <remarks>
@@ -67,21 +76,39 @@ namespace HolidayTravelVehicles.Customer {
         protected global::System.Web.UI.WebControls.DropDownList ddlCustomers;
         
         /// <summary>
-        /// Button2 control.
+        /// dsCustomers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.SqlDataSource dsCustomers;
         
         /// <summary>
-        /// Button1 control.
+        /// btnOptions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnOptions;
+        
+        /// <summary>
+        /// btnPurchase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPurchase;
+        
+        /// <summary>
+        /// error control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel error;
     }
 }

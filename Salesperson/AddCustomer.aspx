@@ -13,10 +13,10 @@
             border: 1px solid GREY;
         }
 
-            .form-area button {
-                margin: 8px;
-                margin-right: 0px;
-            }
+        .form-area button {
+            margin: 8px;
+            margin-right: 0px;
+        }
 
         .mGrid {
             width: 100%;
@@ -26,43 +26,43 @@
             border-collapse: collapse;
         }
 
-            .mGrid td {
-                padding: 2px;
-                border: solid 1px #c1c1c1;
-                color: #717171;
-            }
+        .mGrid td {
+            padding: 2px;
+            border: solid 1px #c1c1c1;
+            color: #717171;
+        }
 
-            .mGrid th {
-                padding: 4px 2px;
-                text-align: center;
-                color: #fff;
-                background: #424242 url(grd_head.png) repeat-x top;
-                border-left: solid 1px #525252;
-                font-size: 0.9em;
-            }
+        .mGrid th {
+            padding: 4px 2px;
+            text-align: center;
+            color: #fff;
+            background: #424242 url(grd_head.png) repeat-x top;
+            border-left: solid 1px #525252;
+            font-size: 0.9em;
+        }
 
-            .mGrid .alt {
-                background-color: lightgrey;
-            }
+        .mGrid .alt {
+            background-color: lightgrey;
+        }
 
-            .mGrid .pgr td {
-                border-width: 0;
-                padding: 0 6px;
-                border-left: solid 1px #666;
-                font-weight: bold;
-                color: #fff;
-                line-height: 12px;
-            }
+        .mGrid .pgr td {
+            border-width: 0;
+            padding: 0 6px;
+            border-left: solid 1px #666;
+            font-weight: bold;
+            color: #fff;
+            line-height: 12px;
+        }
 
-            .mGrid .pgr a {
-                color: #666;
-                text-decoration: none;
-            }
+        .mGrid .pgr a {
+            color: #666;
+            text-decoration: none;
+        }
 
-                .mGrid .pgr a:hover {
-                    color: #000;
-                    text-decoration: none;
-                }
+        .mGrid .pgr a:hover {
+            color: #000;
+            text-decoration: none;
+        }
     </style>
   
 </asp:Content>
